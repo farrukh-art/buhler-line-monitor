@@ -1,0 +1,6 @@
+<article class="machine" [class.machine--alarm]="machine().status === 'alarm'"
+         [class.machine--warning]="machine().status === 'warning'">
+  <app-machine-status class="machine__status" [status]="machine().status" />
+  <img class="machine__icon" [src]="'icons/' + machine().icon + '.svg'" alt="" />
+  <span class="machine__name">{{ machine().shortName }}</span>
+</article>

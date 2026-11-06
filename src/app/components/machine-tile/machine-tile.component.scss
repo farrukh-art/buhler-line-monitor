@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  flex: 0 0 115px;
+  scroll-margin-top: 20px;
+}
+.machine {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  padding: 16px 8px 8px;
+  background: #dedede;
+  color: #282828;
+
+  &--alarm, &--warning { color: #fff; }
+  &--alarm { background: var(--alarm); }
+  &--warning { background: var(--warning); }
+
+  &__status { position: absolute; top: 6px; right: 6px; }
+  &__icon { width: 39px; height: 39px; margin-bottom: 7px; }
+  &__name { font-size: 15px; font-weight: 700; }
+}

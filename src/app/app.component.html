@@ -1,0 +1,40 @@
+<div class="application">
+  <header class="header">
+    <div class="brand" aria-label="Bühler">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">BÜHLER</span>
+    </div>
+    <div class="header__info">
+      <div class="header__detail">
+        <img src="icons/clock.svg" alt="" />
+        <time [attr.datetime]="loadedAt.toISOString()">{{ loadedAt | date:'dd.MM.yyyy HH:mm' }}</time>
+      </div>
+      <div class="header__detail">
+        <img src="icons/account.svg" alt="" />
+        <span>Operator</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="machine-nav" aria-label="Production line machines">
+    @for (machine of machines; track machine.id) {
+      <a class="machine-nav__item" [class.machine-nav__item--alarm]="machine.status === 'alarm'"
+         [class.machine-nav__item--warning]="machine.status === 'warning'"
+         [href]="'#' + machine.id">
+        <span>{{ machine.shortName }}</span>
+        <app-machine-status [status]="machine.status" />
+      </a>
+    }
+  </nav>
+
+  <main class="overview" aria-label="Production line overview">
+    <div class="production-line">
+      @for (machine of machines; track machine.id) {
+        <app-machine-tile [id]="machine.id" [machine]="machine" />
+        @if (!$last) {
+          <div class="production-line__connector" aria-hidden="true"></div>
+        }
+      }
+    </div>
+  </main>
+</div>

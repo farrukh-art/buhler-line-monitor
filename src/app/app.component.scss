@@ -1,0 +1,146 @@
+.application {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.header {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 22px;
+  background: #dedede;
+  border-bottom: 5px solid var(--brand);
+
+  &__info,
+  &__detail {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    gap: 28px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__detail {
+    gap: 7px;
+    white-space: nowrap;
+
+    img {
+      width: 21px;
+      height: 21px;
+    }
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--brand);
+
+  &__name {
+    font-size: 27px;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -.07em;
+  }
+}
+
+.machine-nav {
+  display: flex;
+  overflow-x: auto;
+  background: #dedede;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex: 0 0 145px;
+    min-height: 53px;
+    padding: 12px 10px 8px 14px;
+    gap: 8px;
+    color: #303030;
+    text-decoration: none;
+    font-weight: 600;
+
+    &--alarm {
+      background: var(--alarm);
+      color: #fff;
+    }
+
+    &--warning {
+      background: var(--warning);
+      color: #fff;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: -2px;
+    }
+  }
+}
+
+.overview {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 50px 24px;
+}
+
+.production-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 760px;
+
+  &__connector {
+    height: 3px;
+    min-width: 16px;
+    flex: 1 1 55px;
+    background: #319e27;
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .brand__name {
+    font-size: 23px;
+  }
+
+  .header__info {
+    gap: 10px;
+  }
+
+  .header__detail {
+    font-size: 12px;
+
+    &:first-child {
+      display: none;
+    }
+  }
+
+  .machine-nav__item {
+    flex-basis: 128px;
+  }
+
+  .overview {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 45px 15px;
+  }
+
+  .production-line {
+    min-width: 620px;
+  }
+}
